@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:include="header"></head>
+
+<body>
+<div class="page-container">
+    <div class="page-head">
+
+        <ul class="page-head-elements">
+            <li><a href="#" class="page-navigation-toggle"><span class="fa fa-bars"></span></a></li>
+        </ul>
+    </div>
+    <div th:include="menu">
+    </div>
+    <div class="page-content">
+        <div class="container">
+            <div class="row">
+                //conteudo vai aqui
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer th:include="footer"></footer>
+
+</body>
+
+</html>

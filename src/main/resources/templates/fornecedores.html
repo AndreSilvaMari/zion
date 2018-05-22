@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:include="header"></head>
+
+<body>
+<div class="page-container">
+    <div class="page-head">
+
+        <ul class="page-head-elements">
+            <li><a href="#" class="page-navigation-toggle"><span class="fa fa-bars"></span></a></li>
+        </ul>
+    </div>
+    <div th:include="menu">
+    </div>
+    <div class="page-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <div class="block-head">
+                            <div class="block-title">Cadastro de Fornecedores</div>
+                        </div>
+                        <div class="block-content"><div class="tabs">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#tab19" data-toggle="tab">Inserir Fornecedores</a></li>
+
+
+                            </ul>
+                            <div class="block-content tab-content controls">
+
+                                <div class="tab-pane active" id="tab19">
+
+                                    <div class="row-form">
+                                        <div class="col-md-1"><strong>Razão Social:</strong></div>
+                                        <div class="col-md-10"><input type="text" class="form-control"/></div>
+                                    </div>
+
+                                    <div class="row-form">
+                                        <div class="col-md-1"><strong>NomeFantasia:</strong></div>
+                                        <div class="col-md-10"><input type="text" class="form-control"/></div>
+                                    </div>
+
+
+                                    <div class="row-form">
+                                        <div class="col-md-1"><strong>CNPJ:</strong></div>
+                                        <div class="col-md-10"><input type="text" class="form-control"/></div>
+                                    </div>
+
+                                    <div class="row-form">
+                                        <div class="col-md-1"><strong>Endereço:</strong></div>
+                                        <div class="col-md-10"><input type="text" class="form-control"/></div>
+                                    </div>
+
+                                    <div class="row-form">
+                                        <div class="col-md-1"><strong>Telefone:</strong></div>
+                                        <div class="col-md-10"><input type="text" class="form-control"/></div>
+                                    </div>
+
+                                    <div class="row-form">
+                                        <div class="col-md-1"><strong>Email:</strong></div>
+                                        <div class="col-md-10"><input type="text" class="form-control"/></div>
+                                    </div>
+
+                                    <div class="block-footer">
+                                        <div class="col-md-4">
+                                            <button type="button" class="btn btn-primary btn-block">Enviar</button>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <button type="button" class="btn btn-primary btn-block">Limpar</button>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <button type="button" class="btn btn-primary btn-block">Voltar</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                        </div></div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer th:include="footer"></footer>
+
+</body>
+
+</html>
