@@ -22,7 +22,7 @@ public class ClientesJurController {
 
     @RequestMapping
     public String cliente(){
-        return ("clientes.html");
+        return ("clientes");
     }
 
     @RequestMapping(value = "/inserir",method = RequestMethod.POST)
@@ -88,7 +88,6 @@ public class ClientesJurController {
         }catch (Exception e){
             throw e;
         }
-
     }
 
     @RequestMapping(value = "/editarCliente", method = RequestMethod.POST, produces = "application/json")

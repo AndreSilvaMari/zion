@@ -24,7 +24,7 @@ public class ClientesFisController {
 
     @RequestMapping
     public String cliente(){
-        return ("clientes.html");
+        return ("clientes");
     }
 
     @RequestMapping(value = "/consulta")

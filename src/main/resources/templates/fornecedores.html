@@ -25,55 +25,53 @@
                         <div class="block-content"><div class="tabs">
                             <ul class="nav nav-tabs">
                                 <li class="active"><a href="#tab19" data-toggle="tab">Inserir Fornecedores</a></li>
-
-
                             </ul>
-                            <div class="block-content tab-content controls">
+                            <div class="block-content tab-content controls" id="block">
 
                                 <div class="tab-pane active" id="tab19">
 
                                     <div class="row-form">
                                         <div class="col-md-1"><strong>Razão Social:</strong></div>
-                                        <div class="col-md-10"><input type="text" class="form-control"/></div>
+                                        <div class="col-md-10"><input type="text" class="form-control" id="razSocial"/></div>
                                     </div>
 
                                     <div class="row-form">
                                         <div class="col-md-1"><strong>NomeFantasia:</strong></div>
-                                        <div class="col-md-10"><input type="text" class="form-control"/></div>
+                                        <div class="col-md-10"><input type="text" class="form-control" id="nomeFant"/></div>
                                     </div>
 
 
                                     <div class="row-form">
                                         <div class="col-md-1"><strong>CNPJ:</strong></div>
-                                        <div class="col-md-10"><input type="text" class="form-control"/></div>
+                                        <div class="col-md-10"><input type="text" class="form-control" id="cnpj"/></div>
                                     </div>
 
                                     <div class="row-form">
                                         <div class="col-md-1"><strong>Endereço:</strong></div>
-                                        <div class="col-md-10"><input type="text" class="form-control"/></div>
+                                        <div class="col-md-10"><input type="text" class="form-control" id="endFor"/></div>
                                     </div>
 
                                     <div class="row-form">
                                         <div class="col-md-1"><strong>Telefone:</strong></div>
-                                        <div class="col-md-10"><input type="text" class="form-control"/></div>
+                                        <div class="col-md-10"><input type="text" class="form-control" id="telFor"/></div>
                                     </div>
 
                                     <div class="row-form">
                                         <div class="col-md-1"><strong>Email:</strong></div>
-                                        <div class="col-md-10"><input type="text" class="form-control"/></div>
+                                        <div class="col-md-10"><input type="text" class="form-control" id="emailFor"/></div>
                                     </div>
 
                                     <div class="block-footer">
                                         <div class="col-md-4">
-                                            <button type="button" class="btn btn-primary btn-block">Enviar</button>
+                                            <button type="button" id="inserirForBtn" class="btn btn-primary btn-block" onclick="inserir()">Enviar</button>
                                         </div>
 
                                         <div class="col-md-4">
-                                            <button type="button" class="btn btn-primary btn-block">Limpar</button>
+                                            <button type="button" class="btn btn-primary btn-block" onclick="limpar()">Limpar</button>
                                         </div>
 
                                         <div class="col-md-4">
-                                            <button type="button" class="btn btn-primary btn-block">Voltar</button>
+                                            <button type="button" class="btn btn-primary btn-block" href="/index">Voltar</button>
                                         </div>
                                     </div>
 
@@ -94,6 +92,7 @@
 </div>
 
 <footer th:include="footer"></footer>
+<script th:src="@{/frontjs/fornecedor.js}"></script>
 
 </body>
 
