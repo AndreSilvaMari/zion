@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@Table(name="ordensProducao")
+@Table(name="ordensproducao")
 public class OrdensProducao implements Serializable  {
     @Id
     @Column(name = "id")
@@ -19,8 +19,8 @@ public class OrdensProducao implements Serializable  {
     private String id;
 
     @ManyToOne
-    @JoinColumn(name="itemvenda")
-    private ItensVendidos itensVendidos;
+    @JoinColumn(name="produto")
+    private Produtos produto;
 
     @Column(name = "quantidade")
     private Integer quantidade;
@@ -54,12 +54,12 @@ public class OrdensProducao implements Serializable  {
         this.id = id;
     }
 
-    public ItensVendidos getItensVendidos() {
-        return itensVendidos;
+    public Produtos getProduto() {
+        return produto;
     }
 
-    public void setItensVendidos(ItensVendidos itensVendidos) {
-        this.itensVendidos = itensVendidos;
+    public void setProduto(Produtos produto) {
+        this.produto = produto;
     }
 
     public Integer getQuantidade() {

@@ -25,6 +25,9 @@ public class Compras implements Serializable  {
     @Column(name = "nf")
     private String nf;
 
+    @Column(name = "valorparcela")
+    private Double valorParcela;
+
     @CreationTimestamp
     @Column(name = "dtcriacao")
     @Temporal(TemporalType.TIMESTAMP)
@@ -37,7 +40,6 @@ public class Compras implements Serializable  {
     @DateTimeFormat(pattern = "dd/mm/yyyy hh:mm:ss")
     private Date dtalteracao;
 
-    @CreationTimestamp
     @Column(name = "dtcompra")
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(pattern = "dd/mm/yyyy hh:mm:ss")
@@ -102,5 +104,13 @@ public class Compras implements Serializable  {
 
     public void setFornecedores(Fornecedores fornecedores) {
         this.fornecedores = fornecedores;
+    }
+
+    public Double getValorParcela() {
+        return valorParcela;
+    }
+
+    public void setValorParcela(Double valorParcela) {
+        this.valorParcela = valorParcela;
     }
 }

@@ -23,7 +23,7 @@ public class Usuario implements Serializable {
     @Column(name = "nome")
     private String nome;
 
-    @Column(name = "login")
+    @Column(name = "login", unique = true)
     private String login;
 
     @Column(name = "email")

@@ -1,28 +1,28 @@
 /* file:           demo.js
  * version:        1.3
  * last changed:   23.03.2014
- * description:    This file can be removed before you use template in production. 
- *                 It contains with elements used only for demo preview, and you doesnt need to include 
+ * description:    This file can be removed before you use template in production.
+ *                 It contains with elements used only for demo preview, and you doesnt need to include
  *                 it in your project, couse this features is individual.
 */
 
 $(document).ready(function(){
-    
+
     $.get("assets/ajax-sidebar.html", function(data){
         $(".page-sidebar").html(data);
         $(".page-sidebar").mCustomScrollbar({autoHideScrollbar: true, scrollInertia: 20, advanced: {autoScrollOnFocus: false}})
     });
-    
-    gDemos = {        
+
+    gDemos = {
         init: function(){
-            
+
             /* DropZone */
-            if($(".dropzone").length > 0){               
-                Dropzone.discover();                
+            if($(".dropzone").length > 0){
+                Dropzone.discover();
             }
             /* Eof DropZone */
-            
-            
+
+
             /* filetree plguin */
             if($("#filetree").length > 0){
 
@@ -34,7 +34,7 @@ $(document).ready(function(){
                     multiFolder: false
                 }, function(file) {
                     alert(file);
-                });                        
+                });
 
             }
             /* eof filetree plguin */
@@ -43,14 +43,14 @@ $(document).ready(function(){
             if($("#imgcrop").length > 0){
 
                 $('img#imgcrop').imgAreaSelect({handles: true,
-                                                maxWidth: 200, 
+                                                maxWidth: 200,
                                                 maxHeight: 150,
                                                 onSelectChange: function(img,selection){
                                                     $("#crop_x1").val(selection.x1);
                                                     $("#crop_y1").val(selection.y1);
                                                     $("#crop_x2").val(selection.x2);
-                                                    $("#crop_y2").val(selection.y2); 
-                                                }});        
+                                                    $("#crop_y2").val(selection.y2);
+                                                }});
             }
             /* eof image crop plugin */
 
@@ -93,7 +93,7 @@ $(document).ready(function(){
                                 revert: true,
                                 revertDuration: 0
                         });
-                });        
+                });
 
                 var calendar = $('#calendar').fullCalendar({
                     header: {
@@ -142,15 +142,15 @@ $(document).ready(function(){
                         }
 
                     }
-                });        
+                });
 
-            }    
-            /* eof fullcalendar*/    
+            }
+            /* eof fullcalendar*/
 
 
 
-            /* daterangepicker */       
-            if($("#reportrange").length > 0){   
+            /* daterangepicker */
+            if($("#reportrange").length > 0){
                 $("#reportrange").daterangepicker({
                     ranges: {
                         'Today': [moment(), moment()],
@@ -169,7 +169,7 @@ $(document).ready(function(){
                 );
                 $("#reportrange span").html(moment().subtract('days', 29).format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
             }
-            if($("#reportrange2").length > 0){   
+            if($("#reportrange2").length > 0){
                 $("#reportrange2").daterangepicker({
                     ranges: {
                         'Today': [moment(), moment()],
@@ -203,12 +203,12 @@ $(document).ready(function(){
                             output.val(window.JSON.stringify(list.nestable('serialize')));
                         } else {
                             output.val('JSON browser support required for this demo.');
-                        }          
+                        }
                     };
 
                     return {
-                        show: function(){                    
-                            $("#nestable").nestable({group: 1}).on("change", updNestableOutput);        
+                        show: function(){
+                            $("#nestable").nestable({group: 1}).on("change", updNestableOutput);
                             $("#nestable2").nestable({group: 1}).on("change", updNestableOutput);
 
                             updNestableOutput($('#nestable').data('output', $('#nestable-output')));
@@ -218,7 +218,7 @@ $(document).ready(function(){
                                 var target = $(e.target),
                                     action = target.data('action');
 
-                                if(action === 'expand-all') $('.dd').nestable('expandAll');                        
+                                if(action === 'expand-all') $('.dd').nestable('expandAll');
                                 if(action === 'collapse-all') $('.dd').nestable('collapseAll');
 
                             });
@@ -231,7 +231,7 @@ $(document).ready(function(){
                 mNestable.show();
 
             };
-            /* EOF Nestable */    
+            /* EOF Nestable */
 
 
 
@@ -276,7 +276,7 @@ $(document).ready(function(){
 
                         $('#form-wizard2').bootstrapWizard({
                                 'tabClass': 'form-wizard-levels',
-                                'onNext': function(tab, navigation, index) {                            
+                                'onNext': function(tab, navigation, index) {
                                         var $valid = $("#wizard-validate").valid();
                                         if(!$valid) {
                                                 $validator.focusInvalid();
@@ -284,24 +284,24 @@ $(document).ready(function(){
                                         }
                                         var $total = navigation.find('li').length;
                                         var $current = index+1;
-                                        if($current >= $total) {                                    
+                                        if($current >= $total) {
                                             $('#wizard-validate').find('.pager .next').hide();
-                                            $('#wizard-validate').find('.pager .finish').show();                                    
+                                            $('#wizard-validate').find('.pager .finish').show();
                                         }else{
                                             $('#wizard-validate').find('.pager .next').show();
                                             $('#wizard-validate').find('.pager .finish').hide();
                                         }
                                 },
                                 onTabClick: function(tab, navigation, index) {return false;}
-                        });	
+                        });
 
-            }        
+            }
             /* eof wizard validation */
             /* eof form wizard */
 
 
-            /* jQuery */        
-                /* slider (DEMO) */  
+            /* jQuery */
+                /* slider (DEMO) */
                 if($("#slider_sample_1").length > 0){
 
                     $("#slider_sample_1").slider({value: 10});
@@ -310,14 +310,14 @@ $(document).ready(function(){
                         slide: function(event, ui) {
                             $("#slider_range_2").html(ui.values[ 0 ] + " - " + ui.values[ 1 ]);
                         }
-                    });            
+                    });
                     $("#slider_range_2").html( $("#slider_sample_2").slider("values",0) + " - " + $("#slider_sample_2").slider( "values", 1 ));
 
                     $("#slider_sample_3").slider({min: 0,max: 1000, value: 200, step: 100, range: "min",
                         slide: function(event, ui) {
                             $("#slider_range_3").html(ui.value);
                         }
-                    });            
+                    });
                     $("#slider_range_3").html( $("#slider_sample_3").slider("value"));
 
                     $("#slider_sample_4").slider({orientation: "vertical",range: "min",min: 0,max: 100,value: 60,
@@ -333,12 +333,12 @@ $(document).ready(function(){
                         }
                     });
                     $("#slider_range_5" ).html($("#slider_sample_5").slider("values", 0)+"-"+$("#slider_sample_5").slider("values", 1));
-                }            
+                }
                 /* eof slider */
 
-            /* eof jQuery */            
-            
-        }        
+            /* eof jQuery */
+
+        }
     }
     gDemos.init();
 

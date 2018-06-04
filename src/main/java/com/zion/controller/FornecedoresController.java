@@ -70,7 +70,7 @@ public class FornecedoresController {
     }
 
     @RequestMapping(value = "/editarFornecedor", method = RequestMethod.POST, produces = "application/json")
-    public void editarCliente(
+    public void editarFornecedor(
             @JsonProperty(value = "id")String id,
             @JsonProperty(value = "razSocial")String razSocial,
             @JsonProperty(value = "nomeFant")String nomeFant,
@@ -96,7 +96,7 @@ public class FornecedoresController {
     }
 
     @RequestMapping(value = "/excluir", method = RequestMethod.POST, produces = "application/json")
-    public void excluirCliente(@JsonProperty(value = "id")String id){
+    public void excluirFornecedor(@JsonProperty(value = "id")String id){
         try{
             fornecedoresdao.delete(fornecedoresdao.findOneById(id));
 

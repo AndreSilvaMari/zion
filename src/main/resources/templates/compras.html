@@ -20,69 +20,173 @@
                 <div class="col-md-12">
                     <div class="block">
                         <div class="block-head">
-                            <div class="block-title">Cadastro de Compras</div>
+                            <div class="block-title">Inserir Nova Compra</div>
                         </div>
-                        <div class="block-content"><div class="tabs">
-                            <ul class="nav nav-tabs">
-                                <li class="active"><a href="#tab19" data-toggle="tab">Inserir Compra</a></li>
-
-
-                            </ul>
-                            <div class="block-content tab-content controls">
-
-                                <div class="tab-pane active" id="tab19">
-
-                                    <div class="row-form">
-                                        <div class="col-md-1"><strong>Nota Fiscal:</strong></div>
-                                        <div class="col-md-10"><input type="text" class="form-control"/></div>
-                                    </div>
-
-                                    <div class="row-form">
-                                        <div class="col-md-1"><strong>Fornecedor:</strong></div>
-                                        <div class="col-md-10"><input type="text" class="form-control"/></div>
-                                    </div>
-
-                                    <div class="row-form">
-                                        <div class="col-md-2"><strong>Numero de Parcelas:</strong></div>
-                                        <div class="col-md-10"><input type="text" class="form-control"/></div>
-                                    </div>
-
-                                    <div class="row-form">
-                                        <div class="col-md-1"><strong>Valor Total:</strong></div>
-                                        <div class="col-md-10"><input type="text" class="form-control"/></div>
-                                    </div>
-
-                                    <div class="block-footer">
-                                        <div class="col-md-4">
-                                            <button type="button" class="btn btn-primary btn-block">Enviar</button>
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <button type="button" class="btn btn-primary btn-block">Limpar</button>
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <button type="button" class="btn btn-primary btn-block">Voltar</button>
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab5" data-toggle="tab">Fornecedor</a></li>
+                            <li><a href="#tab6">Produtos</a></li>
+                            <li><a href="#tab7">Carrinho</a></li>
+                            <li><a href="#tab8">Pagamento</a></li>
+                        </ul>
+                        <div class="block-content tab-content">
+                            <div class="tab-pane  active" id="tab5" style="height: auto;">
+                                <div class="block-content">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <label for="codigo">Digite o CNPJ do Fornecedor:</label>
+                                            <input type="text" class="form-control" id="codigo"/>
                                         </div>
                                     </div>
-
+                                </div>
+                                <div class="block-footer">
+                                    <div class="row-form">
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <button type="button" class="btn btn-primary" onclick="consultar()">
+                                                    Consultar
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="block-content">
+                                    <div class="row-form">
+                                        <div class="form-group">
+                                            <div class="col-md-6">
+                                                <label for="nomeFor">Nome do Fornecedor</label>
+                                                <input type="text" class="form-control" id="nomeFor" disabled/>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="email">Email do Fornecedor</label>
+                                                <input type="text" class="form-control" id="email" disabled/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row-form">
+                                        <div class="form-group">
+                                            <div class="col-md-6">
+                                                <label for="tel">Telefone do Fornecedor</label>
+                                                <input type="text" class="form-control" id="tel" disabled/>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="end">Endereço do Fornecedor</label>
+                                                <input type="text" class="form-control" id="end" disabled/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="block-footer">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <button type="button" class="btn btn-primary" onclick="avancarFor()" id="btnForAvanc" disabled>
+                                                Avançar
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tab6">
+                                <div class="block-content">
+                                    <table cellpadding="0" cellspacing="0" width="100%"
+                                           class="table table-bordered table-striped sortable_simple"
+                                           id="tabelaProdutos">
+                                        <thead>
+                                        <tr>
+                                            <th width="30%">Nome</th>
+                                            <th width="30%">Categoria</th>
+                                            <th width="10%">Preço</th>
+                                            <th width="10%">Quantidade em Estoque</th>
+                                            <th width="10%">Adicionar</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="tbodyProdutos">
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="block-footer">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <button type="button" class="btn btn-warning" onclick="voltarFor()">
+                                                Voltar
+                                            </button>
+                                            <button type="button" class="btn btn-primary" onclick="avancarProd()">
+                                                Avançar
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
 
-
                             </div>
-                        </div></div>
-
-
+                            <div class="tab-pane" id="tab7">
+                                <div class="block-content">
+                                    <table cellpadding="0" cellspacing="0" width="100%"
+                                           class="table table-bordered table-striped sortable_simple"
+                                           id="tabelaCarrinho">
+                                        <thead>
+                                        <tr>
+                                            <th width="20%">Nome</th>
+                                            <th width="20%">Categoria</th>
+                                            <th width="20%">Preço</th>
+                                            <th width="20%">Quantidade em Estoque</th>
+                                            <th width="10%">Editar</th>
+                                            <th width="10%">Remover</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="tbodyCarrinho">
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="block-footer">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <button type="button" class="btn btn-warning" onclick="voltarProd()">
+                                                Voltar
+                                            </button>
+                                            <button type="button" class="btn btn-primary" onclick="avancarCarr()">
+                                                Avançar
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tab8">
+                                <div class="block-content">
+                                    <div class="form-group">
+                                        <div class="col-md-6">
+                                            <label for="nf">Digite o Número da NF</label>
+                                            <input type="text" class="form-control" id="nf"/>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="numParc">Digite o Número de Parcelas</label>
+                                            <input type="number" min="0" class="form-control" id="numParc"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="block-footer">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <button type="button" class="btn btn-warning" onclick="voltarCarr()">
+                                                Voltar
+                                            </button>
+                                            <button type="button" class="btn btn-success" onclick="finalizar()">
+                                                Finalizar
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
-
 </div>
 
+<div id="modalArea"></div>
+
 <footer th:include="footer"></footer>
+<script th:src="@{/frontjs/compras.js}"></script>
 
 </body>
 

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:include="header"></head>
+
+<body>
+<div class="page-container">
+    <div class="page-head">
+
+        <ul class="page-head-elements">
+            <li><a href="#" class="page-navigation-toggle"><span class="fa fa-bars"></span></a></li>
+        </ul>
+    </div>
+    <div th:include="menu">
+    </div>
+    <div class="page-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <div class="block-head">
+                            <div class="block-title">Cadastro de Usuarios x Permissão</div>
+                        </div>
+                        <div class="block-content"><div class="tabs">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#tab19" data-toggle="tab">Inserir Usuarios x Permissão</a></li>
+                            </ul>
+                            <div class="block-content tab-content controls" id="block">
+
+                                <div class="tab-pane active" id="tab19">
+
+                                    <div class="row-form">
+                                        <div class="col-md-1"><strong>Usuario:</strong></div>
+                                        <div class="col-md-5">
+                                            <select class="form-control" id="usuario">
+
+                                            </select>
+                                        </div>
+                                        <div class="col-md-1"><strong>Permissão:</strong></div>
+                                        <div class="col-md-5">
+                                            <select class="form-control" id="perm">
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="block-footer">
+                                        <div class="col-md-4">
+                                            <button type="button" id="inserirUsrPermBtn" class="btn btn-primary btn-block" onclick="inserir()">Cadastrar</button>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <button type="button" class="btn btn-primary btn-block" onclick="limpar()">Limpar</button>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <button type="button" class="btn btn-primary btn-block" href="/index">Voltar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div></div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer th:include="footer"></footer>
+<script th:src="@{/frontjs/usuariospermissao.js}"></script>
+
+</body>
+
+</html>

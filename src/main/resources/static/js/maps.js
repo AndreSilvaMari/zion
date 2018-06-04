@@ -6,13 +6,13 @@
 
 $(document).ready(function(){
 
-    /* jVectorMaps */    
+    /* jVectorMaps */
     var europe_markers = [{latLng: [52, 21], name: 'Warszawa: 5'},
                             {latLng: [50.27, 30.31], name: 'Kyiv: 8'},
                             {latLng: [53.54, 27.34], name: 'Minsk: 1'},
                             {latLng: [56.56, 24.6], name: 'Riga: 3'},
                             {latLng: [54.41, 25.17], name: 'Vilnius: 5'},
-                            {latLng: [59.26, 24.44], name: 'Tallinn: 2'},                                                                                                                  
+                            {latLng: [59.26, 24.44], name: 'Tallinn: 2'},
                             {latLng: [52.52, 13.40], name: 'Berlin: 3'},
                             {latLng: [55.68, 12.57], name: 'Copenhagen: 1'},
                             {latLng: [44.43, 26.1], name: 'Bucharest: 1'},
@@ -20,54 +20,54 @@ $(document).ready(function(){
                             {latLng: [52.37, 4.90], name: 'Amsterdam: 15'},
                             {latLng: [48.85, 2.35], name: 'Paris: 7'},
                             {latLng: [40.42, -3.70], name: 'Madrid: 5'},
-                            {latLng: [51.51, -0.13], name: 'London: 12'},                                                        
-                            {latLng: [59.33, 18.06], name: 'Stockholm: 2'},                                                             
+                            {latLng: [51.51, -0.13], name: 'London: 12'},
+                            {latLng: [59.33, 18.06], name: 'Stockholm: 2'},
                             {latLng: [55.75, 37.62], name: 'Moscow: 7'}];
-    
+
     gMap = {
         init: function(){
             if($("#vector_map").length > 0){
                 var init_jvm_wm = function(){
 
                     var jvm_wm = new jvm.WorldMap({container: $('#vector_map'),
-                                                map: 'world_mill_en', 
-                                                backgroundColor: '#f0eff5',                                      
+                                                map: 'world_mill_en',
+                                                backgroundColor: '#f0eff5',
                                                 regionsSelectable: true,
                                                 regionStyle: {selected: {fill: '#2F9FE0'},
                                                                 initial: {fill: '#242F3B'}},
                                                 onRegionSelected: function(){
-                                                    $("#vector_world_map_value").val(jvm_wm.getSelectedRegions().toString());                                          
+                                                    $("#vector_world_map_value").val(jvm_wm.getSelectedRegions().toString());
                                                 }
-                                            });                         
+                                            });
                 }
                 init_jvm_wm();
             }
 
             if($("#europe-map").length > 0){
-                var init_europe = function(){        
-                    $('#europe-map').vectorMap({map: 'europe_mill_en', 
-                                                backgroundColor: false,                                      
-                                                regionsSelectable: true,                                    
+                var init_europe = function(){
+                    $('#europe-map').vectorMap({map: 'europe_mill_en',
+                                                backgroundColor: false,
+                                                regionsSelectable: true,
                                                 zoomOnScroll: false,
                                                 regionStyle: {selected: {fill: '#2F9FE0'},
                                                               initial: {fill: '#334454'}},
                                                 markerStyle: {initial: {fill: '#8CC152',
                                                                         stroke: '#FFFFFF'}},
-                                                              markers: europe_markers                                                           
-                                              });                         
+                                                              markers: europe_markers
+                                              });
                     $('#europe-map').vectorMap('set', 'focus', 1.8, 0.4, 0.6);
                 }
                 init_europe();
-            }                    
-            
+            }
+
             /* Google maps */
             if($("#main-map-google").length > 0){
-                var gKyivCords = new google.maps.LatLng(50.43, 30.60); 
-                var gKyivOptions = {zoom: 10,center: gKyivCords, mapTypeId: google.maps.MapTypeId.ROADMAP}    
-                var gKyiv = new google.maps.Map(document.getElementById("main-map-google"), gKyivOptions);    
+                var gKyivCords = new google.maps.LatLng(50.43, 30.60);
+                var gKyivOptions = {zoom: 10,center: gKyivCords, mapTypeId: google.maps.MapTypeId.ROADMAP}
+                var gKyiv = new google.maps.Map(document.getElementById("main-map-google"), gKyivOptions);
 
                 var kcords = new google.maps.LatLng(50.43, 30.60);
-                var kmarker = new google.maps.Marker({position: kcords, map: gKyiv, title: "Conference place"});        
+                var kmarker = new google.maps.Marker({position: kcords, map: gKyiv, title: "Conference place"});
             }
             if($("#google_map").length > 0){
 
@@ -127,13 +127,13 @@ $(document).ready(function(){
                     });
                 }
 
-                google.maps.event.addDomListener(window, 'load', google_map_search);    
+                google.maps.event.addDomListener(window, 'load', google_map_search);
 
             }
-            /* EOF Google maps */            
-            
+            /* EOF Google maps */
+
             $.updateMaps = function(){
-        
+
                 if($("#europe-map").length > 0){
                     $("#europe-map").off().empty();
                     init_europe();
@@ -144,9 +144,9 @@ $(document).ready(function(){
                 }
 
             }
-            
+
         }
-    }    
+    }
     gMap.init();
 
 });

@@ -25,7 +25,7 @@ public class Fornecedores implements Serializable {
     @Column(name = "nomefant")
     private String nomefant;
 
-    @Column(name = "cnpj")
+    @Column(name = "cnpj", unique = true)
     private String cnpj;
 
     @Column(name = "endereco")

@@ -22,7 +22,7 @@ public class ClienteJur implements Serializable {
     @Column(name = "razao")
     private String razao;
 
-    @Column(name = "cnpj")
+    @Column(name = "cnpj", unique = true)
     private String cnpj;
 
     @Column(name = "im")

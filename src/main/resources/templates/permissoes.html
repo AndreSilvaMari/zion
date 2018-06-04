@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:include="header"></head>
+
+<body>
+<div class="page-container">
+    <div class="page-head">
+
+        <ul class="page-head-elements">
+            <li><a href="#" class="page-navigation-toggle"><span class="fa fa-bars"></span></a></li>
+        </ul>
+    </div>
+    <div th:include="menu">
+    </div>
+    <div class="page-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <div class="block-head">
+                            <div class="block-title">Cadastro de Permissões</div>
+                        </div>
+                        <div class="block-content"><div class="tabs">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#tab19" data-toggle="tab">Inserir Permissões</a></li>
+                            </ul>
+                            <div class="block-content tab-content controls" id="block">
+
+                                <div class="tab-pane active" id="tab19">
+
+                                    <div class="row-form">
+                                        <div class="col-md-1"><strong>Nome:</strong></div>
+                                        <div class="col-md-10"><input type="text" class="form-control" id="nome"/></div>
+                                    </div>
+
+                                    <div class="row-form">
+                                        <div class="col-md-1"><strong>Descrição:</strong></div>
+                                        <div class="col-md-10"><input type="text" class="form-control" id="desc"/></div>
+                                    </div>
+                                    <div class="row-form">
+                                        <div class="col-md-1"><strong>Ativo:</strong></div>
+                                        <div class="col-md-2">
+                                            <select class="form-control" id="ativo">
+                                                <option value="true">Ativo</option>
+                                                <option value="false">Inativo</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="block-footer">
+                                        <div class="col-md-4">
+                                            <button type="button" id="inserirPermBtn" class="btn btn-primary btn-block" onclick="inserir()">Cadastrar</button>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <button type="button" class="btn btn-primary btn-block" onclick="limpar()">Limpar</button>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <button type="button" class="btn btn-primary btn-block" href="/index">Voltar</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                        </div></div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer th:include="footer"></footer>
+<script th:src="@{/frontjs/permissoes.js}"></script>
+
+</body>
+
+</html>

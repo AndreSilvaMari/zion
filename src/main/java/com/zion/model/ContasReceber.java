@@ -10,8 +10,8 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@Table(name="contasreceber")
-public class ContasReceber implements Serializable  {
+@Table(name = "contasreceber")
+public class ContasReceber implements Serializable {
     @Id
     @Column(name = "id")
     @GeneratedValue(generator = "system-uuid")
@@ -19,11 +19,15 @@ public class ContasReceber implements Serializable  {
     private String id;
 
     @ManyToOne
-    @JoinColumn(name="clientefis")
+    @JoinColumn(name = "clientefis")
     private ClienteFis clienteFis;
 
     @ManyToOne
-    @JoinColumn(name="vendas")
+    @JoinColumn(name = "clientesjur")
+    private ClienteJur clienteJur;
+
+    @ManyToOne
+    @JoinColumn(name = "vendas")
     private Vendas vendas;
 
     @Column(name = "numeroparcelas")
@@ -32,7 +36,6 @@ public class ContasReceber implements Serializable  {
     @Column(name = "valorparcela")
     private Double valorParcela;
 
-    @CreationTimestamp
     @Column(name = "dtparcela")
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(pattern = "dd/mm/yyyy hh:mm:ss")
@@ -50,7 +53,8 @@ public class ContasReceber implements Serializable  {
     @DateTimeFormat(pattern = "dd/mm/yyyy hh:mm:ss")
     private Date dtalteracao;
 
-    public ContasReceber(){}
+    public ContasReceber() {
+    }
 
     public String getId() {
         return id;
@@ -114,5 +118,13 @@ public class ContasReceber implements Serializable  {
 
     public void setDtalteracao(Date dtalteracao) {
         this.dtalteracao = dtalteracao;
+    }
+
+    public ClienteJur getClienteJur() {
+        return clienteJur;
+    }
+
+    public void setClienteJur(ClienteJur clienteJur) {
+        this.clienteJur = clienteJur;
     }
 }

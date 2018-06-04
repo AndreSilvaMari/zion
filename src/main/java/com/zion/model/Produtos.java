@@ -31,8 +31,8 @@ public class Produtos implements Serializable {
     @Column(name = "quantidade")
     private Integer quantidade;
 
-    @Column(name = "preço")
-    private Double preço;
+    @Column(name = "preco")
+    private Double preco;
 
     @CreationTimestamp
     @Column(name = "dtcriacao")
@@ -88,12 +88,12 @@ public class Produtos implements Serializable {
         this.quantidade = quantidade;
     }
 
-    public Double getPreço() {
-        return preço;
+    public Double getPreco() {
+        return preco;
     }
 
-    public void setPreço(Double preço) {
-        this.preço = preço;
+    public void setPreco(Double preco) {
+        this.preco = preco;
     }
 
     public Date getDtcriacao() {

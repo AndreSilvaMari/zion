@@ -12,7 +12,32 @@ window.onload = function () {
         'ordering': true,
         'info': true,
         'autoWidth': false,
-        'iDisplayLength': 25
+        'dom': 'B<"top"l>frti<"top"p><"clear">',
+        'buttons': [{'extend': 'print', 'text': 'Imprimir Dados', 'className': 'btn btn-default'}],
+        'iDisplayLength': 25,
+        "language": {
+            "sEmptyTable": "Nenhum registro encontrado",
+            "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+            "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+            "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+            "sInfoPostFix": "",
+            "sInfoThousands": ".",
+            "sLengthMenu": "_MENU_ resultados por página",
+            "sLoadingRecords": "Carregando...",
+            "sProcessing": "Processando...",
+            "sZeroRecords": "Nenhum registro encontrado",
+            "sSearch": "Pesquisar: ",
+            "oPaginate": {
+                "sNext": "Próximo",
+                "sPrevious": "Anterior",
+                "sFirst": "Primeiro",
+                "sLast": "Último"
+            },
+            "oAria": {
+                "sSortAscending": ": Ordenar colunas de forma ascendente",
+                "sSortDescending": ": Ordenar colunas de forma descendente"
+            }
+        }
         });
 
     var table = $('tabelaClientesFis').Database;
@@ -34,14 +59,14 @@ function renderClientes()
     });
 
     for(var i = 0; i < retorno.length; i++){
-        document.getElementById("tbodyClienteFis").innerHTML += +
-            "<tr>" +
-            "<td>"+retorno[i].id+"</td>"+
+        var tr = document.createElement("tr");
+
+        tr.innerHTML = "<td>"+retorno[i].id+"</td>"+
             "<td>"+retorno[i].nome+"</td>"+
             "<td>"+retorno[i].cpf+"</td>"+
             "<td><button id='btnEd+"+retorno[i].id+"' onclick='editar(\""+retorno[i].id+"\")'><i class='fa fa-pencil'></i></button></td>"+
-        "<td><button id='btnEx+"+retorno[i].id+"' onclick='excluir(\""+retorno[i].id+"\")'><i class='fa fa-trash-o'></i></button></td>" +
-            "</tr>"
+        "<td><button id='btnEx+"+retorno[i].id+"' onclick='excluir(\""+retorno[i].id+"\")'><i class='fa fa-trash-o'></i></button></td>";
+        document.getElementById("tbodyClienteFis").appendChild(tr);
     }
 
 }

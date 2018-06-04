@@ -14,4 +14,6 @@ public interface FornecedoresDAO extends CrudRepository<Fornecedores,String> {
 
     Fornecedores findOneById(String id);
 
+    Fornecedores findFirstByCnpj(String cnpj);
+
 }
