@@ -185,13 +185,13 @@ function renderProdutos() {
             "<td>" + retorno[i].categoria + "</td>" +
             "<td>R$ " + retorno[i].preco + "</td>" +
             "<td>" + retorno[i].quantidade + "</td>" +
-            "<td><button id='btnAd+" + retorno[i].id + "' onclick='adicionar(\"" + retorno[i].id + "\",\"" + retorno[i].quantidade + "\",\"" + retorno[i].preco + "\",\"" + retorno[i].nome + "\",\"" + retorno[i].categoria + "\")'><i class='fa fa-shopping-cart'></i></button></td>";
+            "<td><button id='btnAd+" + retorno[i].id + "' onclick='adicionar(\"" + retorno[i].id + "\",\"" + retorno[i].quantidade + "\",\"" + retorno[i].preco + "\",\"" + retorno[i].nome + "\",\"" + retorno[i].categoria + "\","+i+")'><i class='fa fa-shopping-cart'></i></button></td>";
         document.getElementById("tbodyProdutos").appendChild(tr);
     }
 
 }
 
-function adicionar(id, quantidade, preco, nome, categoria) {
+function adicionar(id, quantidade, preco, nome, categoria, cell) {
     removeParent(modalController);
     var dynamicModal = document.createElement("div");
     dynamicModal.setAttribute("class", "modal fade");
@@ -212,7 +212,7 @@ function adicionar(id, quantidade, preco, nome, categoria) {
         "</div>" +
         "<div class='modal-footer'>" +
         "<button type='button' class='btn btn-default pull-left' data-dismiss='modal'>Cancelar</button>" +
-        "<button type='button' class='btn btn-primary' onclick='confirmaAdicionar(\"" + id + "\",\"" + parseInt(quantidade) + "\",\"" + preco + "\",\"" + nome + "\",\"" + categoria + "\")'>Confirmar</button>" +
+        "<button type='button' class='btn btn-primary' onclick='confirmaAdicionar(\"" + id + "\",\"" + parseInt(quantidade) + "\",\"" + preco + "\",\"" + nome + "\",\"" + categoria + "\", \""+cell+"\")'>Confirmar</button>" +
         "</div>" +
         "</div>" +
         "</div>";
@@ -220,7 +220,7 @@ function adicionar(id, quantidade, preco, nome, categoria) {
     $('#modal-adicionar').modal('toggle');
 }
 
-function confirmaAdicionar(id, quantidade, preco, nome, cat) {
+function confirmaAdicionar(id, quantidade, preco, nome, cat, cell) {
     var qtdSol = document.getElementById('qtdSol').value;
     if (parseInt(quantidade) >= qtdSol) {
         noty({text: 'Produto Adicionado Com Sucesso', type: 'success'});
@@ -232,7 +232,7 @@ function confirmaAdicionar(id, quantidade, preco, nome, cat) {
             cat,
             preco,
             '<p id="p' + id + '">' + qtdSol + '</p>',
-            '<button id="btnEd+' + id + '" onclick="editar(\'' + id + '\',\'' + quantidade + '\',\'' + qtdSol + '\')"><i class="fa fa-pencil"></i></button>',
+            '<button id="btnEd+' + id + '" onclick="editar(\'' + id + '\',\'' + quantidade + '\',\'' + qtdSol + '\', \''+cell+'\')"><i class="fa fa-pencil"></i></button>',
             '<button id="btnRe+' + id + '" onclick="remover(\'' + id + '\')"><i class="fa fa-trash-o"></i></button>'
         ]).node().id = 'tr' + id;
         table.draw();
@@ -250,7 +250,7 @@ function removeParent(id) {
     }
 }
 
-function editar(id, quantidade, qtdSol) {
+function editar(id, quantidade, qtdSol, cell) {
     removeParent(modalController);
     var dynamicModal = document.createElement("div");
     dynamicModal.setAttribute("class", "modal fade");
@@ -271,7 +271,7 @@ function editar(id, quantidade, qtdSol) {
         "</div>" +
         "<div class='modal-footer'>" +
         "<button type='button' class='btn btn-default pull-left' data-dismiss='modal'>Cancelar</button>" +
-        "<button type='button' class='btn btn-primary' onclick='confirmaEditar(\"" + id + "\",\"" + parseInt(quantidade) + "\")'>Confirmar</button>" +
+        "<button type='button' class='btn btn-primary' onclick='confirmaEditar(\"" + id + "\",\"" + parseInt(quantidade) + "\", \""+cell+ "\")'>Confirmar</button>" +
         "</div>" +
         "</div>" +
         "</div>";
@@ -280,16 +280,20 @@ function editar(id, quantidade, qtdSol) {
 }
 
 
-function confirmaEditar(id, quantidade) {
+function confirmaEditar(id, quantidade, cell) {
     var qtdSol = document.getElementById('qtdSol').value;
     if (parseInt(quantidade) >= qtdSol) {
         noty({text: 'Produto Editado Com Sucesso', type: 'success'});
         document.getElementById('p' + id).innerHTML = qtdSol;
         $('#modal-editar').modal('toggle');
+        var table = $('#tabelaCarrinho').DataTable();
+        table.row(0).cell(0,3).data("<p id=p"+id+">"+qtdSol+"</p>").draw;
     }
     else if (parseInt(quantidade) < qtdSol) {
         noty({text: 'Quantidade Insuficiente', type: 'error'});
     }
+
+
 }
 
 function remover(id) {
